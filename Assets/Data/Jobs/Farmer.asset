@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DailyIncome: 2
   DailyExperience: 2
+  Requirements:
+  - Job: {fileID: 11400000, guid: 04269b9eee5dd7d498d7c8214f2ffbd0, type: 2}
+    Level: 1

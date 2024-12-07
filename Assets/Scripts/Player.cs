@@ -62,6 +62,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        _currentJob = GameObject.FindWithTag("Job").GetComponent<ProgressObject>();
+    }
+
     public void NewJobActivated(ProgressObject job)
     {
         if (_currentJob)
