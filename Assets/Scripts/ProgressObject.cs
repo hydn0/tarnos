@@ -23,15 +23,12 @@ public class ProgressObject : MonoBehaviour
         get => _experience;
         set
         {
+            _experience = value;
             if (value >= _maxExperience)
             {
                 _experience = 0f;
                 _maxExperience += 100f;
                 _level += 1;
-            }
-            else
-            {
-                _experience = value;
             }
         }
     }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3155262073263569210}
   - component: {fileID: 4769463269691956173}
   m_Layer: 5
-  m_Name: Balance Text (1)
+  m_Name: BalanceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -319,6 +319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9264f5339bafd34fa8e31eee3334c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dayText: {fileID: 3395796291252192029}
+  ageText: {fileID: 2447448897510935315}
+  balanceText: {fileID: 6235698851927105475}
 --- !u!1 &3527885223918547151
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +334,7 @@ GameObject:
   - component: {fileID: 6856055077767073575}
   - component: {fileID: 3395796291252192029}
   m_Layer: 5
-  m_Name: Day Text
+  m_Name: UI_DayText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,8 +356,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19, y: 145.37}
-  m_SizeDelta: {x: 65.997, y: 32.861}
+  m_AnchoredPosition: {x: 27.3, y: 145.36}
+  m_SizeDelta: {x: 109.7321, y: 32.861}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6856055077767073575
 CanvasRenderer:
@@ -378,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -465,7 +468,7 @@ GameObject:
   - component: {fileID: 7316935463195674624}
   - component: {fileID: 6235698851927105475}
   m_Layer: 5
-  m_Name: Balance Text
+  m_Name: UI_BalanceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -512,7 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -617,13 +620,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3517007471702658882}
-  - {fileID: 8439766095986601406}
-  - {fileID: 3329823278835116958}
-  - {fileID: 539185696452553142}
   - {fileID: 1731303850435662672}
-  - {fileID: 7964851694282765381}
+  - {fileID: 3329823278835116958}
+  - {fileID: 8439766095986601406}
   - {fileID: 6342990772073131501}
+  - {fileID: 3517007471702658882}
+  - {fileID: 539185696452553142}
+  - {fileID: 7964851694282765381}
   m_Father: {fileID: 1789072460591604846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -681,7 +684,7 @@ GameObject:
   - component: {fileID: 2698419198499296357}
   - component: {fileID: 1013648065286795494}
   m_Layer: 5
-  m_Name: Lifespan Text
+  m_Name: LifeSpanText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -728,7 +731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -816,7 +819,7 @@ GameObject:
   - component: {fileID: 6905420557166966267}
   - component: {fileID: 3210442719729579584}
   m_Layer: 5
-  m_Name: Play Button
+  m_Name: PauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -869,7 +872,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -925,7 +928,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8119274179080389843}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: TogglePause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -947,7 +950,7 @@ GameObject:
   - component: {fileID: 5769626397751822758}
   - component: {fileID: 2447448897510935315}
   m_Layer: 5
-  m_Name: Age Text
+  m_Name: UI_AgeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -969,8 +972,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -121.96477, y: 145.3683}
-  m_SizeDelta: {x: 70.6706, y: 32.8634}
+  m_AnchoredPosition: {x: -102.43, y: 145.37}
+  m_SizeDelta: {x: 109.7321, y: 32.8634}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5769626397751822758
 CanvasRenderer:
@@ -994,7 +997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

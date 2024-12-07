@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -8,18 +9,45 @@ public class Player : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private TextMeshProUGUI ageText;
     [SerializeField] private TextMeshProUGUI balanceText;
-    [Header("State")]
+    [Header("Progress Object")]
+    private List<ProgressObject> _jobs = new();
     private ProgressObject _activeJob;
-    private bool isPaused;
+    [Header("State")]
+    private bool _isPaused = true;
     private int _day;
     private int _age;
     private float _balance;
 
+    private bool isPaused
+    {
+        get => _isPaused;
+        set
+        {
+            _isPaused = value;
+            if (value)
+            {
+                StopAllCoroutines();
+                foreach (ProgressObject job in _jobs)
+                {
+                    job.StopAllCoroutines();
+                }
+            }
+            else
+            {
+                StartCoroutine(IncrementDay());
+                if (_activeJob)
+                {
+                    _activeJob.StartCoroutine(_activeJob.IncrementXP());
+                }
+            }
+        }
+    }
     private int day
     {
         get => _day;
         set
         {
+            _day = value;
             if (value >= 365)
             {
                 _day = 0;
@@ -27,8 +55,10 @@ public class Player : MonoBehaviour
             }
             else
             {
-                _day = value;
-                _balance += _activeJob.DailyIncome;
+                if (_activeJob && !isPaused)
+                {
+                    _balance += _activeJob.DailyIncome;
+                }
             }
         }
     }
@@ -38,21 +68,22 @@ public class Player : MonoBehaviour
         foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Job"))
         {
             ProgressObject progressObject = gameObject.GetComponent<ProgressObject>();
+            _jobs.Add(progressObject);
             progressObject.Selected.AddListener(NewJobActivated);
         }
     }
 
     public void NewJobActivated(ProgressObject job)
     {
-        foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Job"))
+        if (_activeJob)
         {
-            ProgressObject progressObject = gameObject.GetComponent<ProgressObject>();
-            progressObject.StopAllCoroutines();
-            
+            _activeJob.StopAllCoroutines();
         }
-
         _activeJob = job;
-        StartCoroutine(_activeJob.IncrementXP());
+        if (!isPaused)
+        {
+            _activeJob.StartCoroutine(_activeJob.IncrementXP());
+        }
     }
 
     public void TogglePause()
@@ -60,18 +91,16 @@ public class Player : MonoBehaviour
         if (isPaused)
         {
             isPaused = false;
-            StartCoroutine(_activeJob.IncrementXP());
         }
         else
         {
             isPaused = true;
-            StopCoroutine(_activeJob.IncrementXP());
         }
     }
 
     private IEnumerator IncrementDay()
     {
-        while (true)
+        while (_age <= 70)
         {
             day += 1;
             UpdateUI();
@@ -81,8 +110,8 @@ public class Player : MonoBehaviour
 
     private void UpdateUI()
     {
-        dayText.text = "Day: " + _day;
+        dayText.text = "Day: " + day;
         ageText.text = "Age: " + _age;
-        balanceText.text = "Balance: " + _balance;
+        balanceText.text = _balance.ToString();
     }
 }
