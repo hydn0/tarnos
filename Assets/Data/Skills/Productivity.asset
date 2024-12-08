@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae52daa53f6403e4ca54761137acc8cf, type: 3}
+  m_Name: Productivity
+  m_EditorClassIdentifier: 
+  DailyExperience: 1
+  Requirements:
+  - Object: {fileID: 11400000, guid: 726fd3683666f3c488f94ebdd6815c2c, type: 2}
+    Level: 1
+  Effect:
+    Name: 0
+    Multiplier: 0
