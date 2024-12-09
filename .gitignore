@@ -1,4 +1,4 @@
-# Unity folders
+# Unity generated folders
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -7,10 +7,10 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 
-# User settings
+# User-specific settings
 UserSettings/
 
-# Temporary files
+# Crash reports
 *.pidb
 *.booproj
 *.pidb.meta
@@ -18,9 +18,42 @@ UserSettings/
 *.mdb
 *.opendb
 
-# OS files
+# IDE-specific files
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio
+.vscode/
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userosscache
+*.userprefs
+
+# OS-specific files
 .DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Textures
+*.tga.meta
+*.tif.meta
+
+# Audio
+*.wav.meta
+
+# Other
+*.apk
+*.swp
+*.lock
+*.log
