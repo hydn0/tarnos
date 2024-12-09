@@ -9,6 +9,8 @@ public class Progress : MonoBehaviour
     public float DailyIncome;
     public BaseSkill.Modifier Effect;
     public float DailyExperience;
+    public float MaxExperience = 5f;
+
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _incomeOrEffectText;
     [SerializeField] private TextMeshProUGUI _incomeOrEffectMuteText;
@@ -16,15 +18,11 @@ public class Progress : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dailyExperienceText;
     [SerializeField] private TextMeshProUGUI _experienceLeftText;
     [SerializeField] private TextMeshProUGUI _levelText;
-    [Header("State")]
-    private float _experience;
-    public float MaxExperience = 5f;
 
-    public float Level
-    {
-        get;
-        private set;
-    }
+    private float _experience;
+
+    public float Level { get; private set; }
+
     public float Experience
     {
         get => _experience;
@@ -36,7 +34,7 @@ public class Progress : MonoBehaviour
                 _experience = 0f;
                 MaxExperience += 1f;
                 Level += 1;
-                LeveledUp.Invoke();
+                LevelUp();
             }
         }
     }
@@ -44,7 +42,7 @@ public class Progress : MonoBehaviour
     public UnityEvent<Progress> Selected = new();
     public UnityEvent LeveledUp = new();
 
-    void Start()
+    private void Start()
     {
         Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
         if (tag == "Job")
@@ -60,6 +58,7 @@ public class Progress : MonoBehaviour
         }
     }
 
+    // Public Methods
     public void InitializeJob(string objectName, string objectTag, float dailyIncome, float dailyExperience)
     {
         name = objectName;
@@ -93,6 +92,7 @@ public class Progress : MonoBehaviour
         }
     }
 
+    // Private Methods
     private void UpdateUI()
     {
         transform.Find("NameText").GetComponent<TextMeshProUGUI>().text = name;
@@ -109,5 +109,10 @@ public class Progress : MonoBehaviour
         {
             _incomeOrEffectText.text = Effect.Multiplier.ToString();
         }
+    }
+
+    private void LevelUp()
+    {
+        LeveledUp.Invoke();
     }
 }
