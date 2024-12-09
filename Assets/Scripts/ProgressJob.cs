@@ -1,6 +1,6 @@
 public class ProgressJob : Progress
 {
-    public float DailyIncome { get; private set; }
+    public float DailyIncome;
 
     protected override void Start()
     {

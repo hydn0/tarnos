@@ -8,7 +8,6 @@ public class Progress : MonoBehaviour
 {
     [Header("Experience")]
     public float DailyExperience = 1f;
-    public float MaxExperience = 5f;
 
     [Header("UI")]
     [SerializeField] protected TextMeshProUGUI _incomeOrEffectText;
@@ -22,13 +21,13 @@ public class Progress : MonoBehaviour
     protected Player _player;
 
     public UnityEvent<Progress> Selected = new();
-    public UnityEvent LeveledUp = new();
+    public UnityEvent<Progress> LeveledUp = new();
 
     public float Level { get; protected set; }
     public float Experience
     {
         get => _experience;
-        set
+        protected set
         {
             _experience = value;
             if (value >= MaxExperience)
@@ -40,6 +39,7 @@ public class Progress : MonoBehaviour
             }
         }
     }
+    public float MaxExperience { get; protected set; } = 5f;
 
     protected virtual void Start()
     {
@@ -74,8 +74,8 @@ public class Progress : MonoBehaviour
         _levelText.text = Level.ToString();
     }
 
-    protected void LevelUp()
+    private void LevelUp()
     {
-        LeveledUp.Invoke();
+        LeveledUp.Invoke(this);
     }
 }

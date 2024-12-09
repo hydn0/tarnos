@@ -1,6 +1,6 @@
 public class ProgressSkill : Progress
 {
-    public ObjectProgressSkill.Modifier Effect { get; private set; }
+    private ObjectModifiers.Modifier _effect;
 
     protected override void Start()
     {
@@ -9,11 +9,11 @@ public class ProgressSkill : Progress
         Selected.AddListener(_player.NewSkillActivated);
     }
 
-    public void InitializeSkill(string progressName, string progressTag, ObjectProgressSkill.Modifier effect, float dailyExperience)
+    public void InitializeSkill(string progressName, string progressTag, ObjectModifiers.Modifier effect, float dailyExperience)
     {
         name = progressName;
         tag = progressTag;
-        Effect = effect;
+        _effect = effect;
         DailyExperience = dailyExperience;
         UpdateUI();
     }
@@ -21,6 +21,6 @@ public class ProgressSkill : Progress
     protected override void UpdateUI()
     {
         base.UpdateUI();
-        _incomeOrEffectText.text = Effect.Multiplier.ToString();
+        _incomeOrEffectText.text = _effect.Multiplier.ToString();
     }
 }

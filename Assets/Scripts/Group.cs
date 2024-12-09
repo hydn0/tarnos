@@ -40,10 +40,14 @@ public abstract class Group : MonoBehaviour
         }
     }
 
-    protected abstract void InitializeProgressObject(Progress newProgress, ObjectProgress baseObj);
+    protected abstract void InitializeProgressObject(Progress newProgress, ObjectProgress progressObj);
 
-    protected void OnLeveledUp()
+    protected abstract void ScaleProgress(Progress progress);
+
+    private void OnLeveledUp(Progress progress)
     {
+        ScaleProgress(progress);
+
         if (progressCount < Objects.Length && AreAllRequirementsMet(Objects[progressCount].Requirements))
         {
             ActivateObjects(Objects[progressCount].name);
