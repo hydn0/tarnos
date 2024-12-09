@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private TextMeshProUGUI ageText;
     [SerializeField] private TextMeshProUGUI balanceText;
-    [SerializeField] private TextMeshProUGUI pauseButtonText;
+    [SerializeField] private TextMeshProUGUI pauseToggleText;
     [SerializeField] private TextMeshProUGUI netBalanceText;
     [SerializeField] private TextMeshProUGUI incomeText;
     [SerializeField] private TextMeshProUGUI expenseText;
@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     [Header("State")]
     private Progress _currentJob;
     private Progress _currentSkill;
-    private bool _isPaused = true;
+    private bool _isPaused;
     private int _day;
     private int _age;
     private float _balance;
@@ -83,6 +83,7 @@ public class Player : MonoBehaviour
     {
         _currentJob = GameObject.FindWithTag("Job").GetComponent<Progress>();
         _currentSkill = GameObject.FindWithTag("Skill").GetComponent<Progress>();
+        IsPaused = false;
     }
 
     public void NewJobActivated(Progress job)
@@ -111,17 +112,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void TogglePause()
+    public void TogglePause(Toggle toggle)
     {
-        if (IsPaused)
+        if (toggle.isOn)
         {
-            pauseButtonText.text = "Pause";
-            IsPaused = false;
+            pauseToggleText.text = "Play";
+            IsPaused = true;
         }
         else
         {
-            pauseButtonText.text = "Play";
-            IsPaused = true;
+            pauseToggleText.text = "Pause";
+            IsPaused = false;
         }
     }
 

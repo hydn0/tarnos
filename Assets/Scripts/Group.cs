@@ -63,7 +63,7 @@ public abstract class Group : MonoBehaviour
     private bool AreAllRequirementsMet(IEnumerable<BaseObject.Requirement> requirements)
     {
         return requirements.All(r => 
-            progressObjects.Any(o => o.name == r.Object.name && o.Level == r.Level));
+            progressObjects.Any(o => o.name == r.Object.name && o.Level >= r.Level));
     }
 
     private void DisplayNextRequirements(List<BaseObject.Requirement> requirements)

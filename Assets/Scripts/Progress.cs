@@ -22,7 +22,7 @@ public class Progress : MonoBehaviour
     private float _experience;
 
     public float Level { get; private set; }
-
+    
     public float Experience
     {
         get => _experience;
@@ -58,7 +58,6 @@ public class Progress : MonoBehaviour
         }
     }
 
-    // Public Methods
     public void InitializeJob(string objectName, string objectTag, float dailyIncome, float dailyExperience)
     {
         name = objectName;
@@ -92,7 +91,6 @@ public class Progress : MonoBehaviour
         }
     }
 
-    // Private Methods
     private void UpdateUI()
     {
         transform.Find("NameText").GetComponent<TextMeshProUGUI>().text = name;
