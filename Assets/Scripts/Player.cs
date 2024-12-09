@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Image currentJobProgressBar;
     [SerializeField] private Image currentSkillProgressBar;
     [Header("State")]
-    private Progress _currentJob;
-    private Progress _currentSkill;
+    private ProgressJob _currentJob;
+    private ProgressSkill _currentSkill;
     private bool _isPaused;
     private int _day;
     private int _age;
@@ -81,8 +81,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        _currentJob = GameObject.FindWithTag("Job").GetComponent<Progress>();
-        _currentSkill = GameObject.FindWithTag("Skill").GetComponent<Progress>();
+        _currentJob = GameObject.FindWithTag("Job").GetComponent<Progress>() as ProgressJob;
+        _currentSkill = GameObject.FindWithTag("Skill").GetComponent<Progress>() as ProgressSkill;
         IsPaused = false;
     }
 
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
         {
             _currentJob.StopAllCoroutines();
         }
-        _currentJob = job;
+        _currentJob = (ProgressJob)job;
         if (!IsPaused)
         {
             _currentJob.StartCoroutine(_currentJob.IncrementXP());
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
         {
             _currentSkill.StopAllCoroutines();
         }
-        _currentSkill = skill;
+        _currentSkill = (ProgressSkill)skill;
         if (!IsPaused)
         {
             _currentSkill.StartCoroutine(_currentSkill.IncrementXP());

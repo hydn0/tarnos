@@ -6,23 +6,25 @@ using TMPro;
 
 public class Progress : MonoBehaviour
 {
-    public float DailyIncome;
-    public BaseSkill.Modifier Effect;
-    public float DailyExperience;
+    [Header("Experience")]
+    public float DailyExperience = 1f;
     public float MaxExperience = 5f;
 
     [Header("UI")]
-    [SerializeField] private TextMeshProUGUI _incomeOrEffectText;
-    [SerializeField] private TextMeshProUGUI _incomeOrEffectMuteText;
-    [SerializeField] private Image _experienceProgressBar;
-    [SerializeField] private TextMeshProUGUI _dailyExperienceText;
-    [SerializeField] private TextMeshProUGUI _experienceLeftText;
-    [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] protected TextMeshProUGUI _incomeOrEffectText;
+    [SerializeField] protected TextMeshProUGUI _incomeOrEffectMuteText;
+    [SerializeField] protected Image _experienceProgressBar;
+    [SerializeField] protected TextMeshProUGUI _dailyExperienceText;
+    [SerializeField] protected TextMeshProUGUI _experienceLeftText;
+    [SerializeField] protected TextMeshProUGUI _levelText;
 
-    private float _experience;
+    protected float _experience;
+    protected Player _player;
 
-    public float Level { get; private set; }
-    
+    public UnityEvent<Progress> Selected = new();
+    public UnityEvent LeveledUp = new();
+
+    public float Level { get; protected set; }
     public float Experience
     {
         get => _experience;
@@ -39,41 +41,9 @@ public class Progress : MonoBehaviour
         }
     }
 
-    public UnityEvent<Progress> Selected = new();
-    public UnityEvent LeveledUp = new();
-
-    private void Start()
+    protected virtual void Start()
     {
-        Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        if (tag == "Job")
-        {
-            _incomeOrEffectMuteText.text = "Income";
-            Selected.AddListener(player.NewJobActivated);
-
-        }
-        else if (tag == "Skill")
-        {
-            _incomeOrEffectMuteText.text = "Effect";
-            Selected.AddListener(player.NewSkillActivated);
-        }
-    }
-
-    public void InitializeJob(string objectName, string objectTag, float dailyIncome, float dailyExperience)
-    {
-        name = objectName;
-        tag = objectTag;
-        DailyIncome = dailyIncome;
-        DailyExperience = dailyExperience;
-        UpdateUI();
-    }
-
-    public void InitializeSkill(string objectName, string objectTag, BaseSkill.Modifier effect, float dailyExperience)
-    {
-        name = objectName;
-        tag = objectTag;
-        Effect = effect;
-        DailyExperience = dailyExperience;
-        UpdateUI();
+        _player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 
     public void OnClick()
@@ -91,25 +61,20 @@ public class Progress : MonoBehaviour
         }
     }
 
-    private void UpdateUI()
+    protected virtual void UpdateUI()
     {
-        transform.Find("NameText").GetComponent<TextMeshProUGUI>().text = name;
+        if (transform.Find("NameText") != null)
+        {
+            transform.Find("NameText").GetComponent<TextMeshProUGUI>().text = name;
+        }
+
         _dailyExperienceText.text = DailyExperience.ToString();
         _experienceProgressBar.fillAmount = Mathf.Clamp(Experience / MaxExperience, 0f, 1f);
         _experienceLeftText.text = (MaxExperience - _experience).ToString();
         _levelText.text = Level.ToString();
-
-        if (tag == "Job")
-        {
-            _incomeOrEffectText.text = DailyIncome.ToString();
-        }
-        else if (tag == "Skill")
-        {
-            _incomeOrEffectText.text = Effect.Multiplier.ToString();
-        }
     }
 
-    private void LevelUp()
+    protected void LevelUp()
     {
         LeveledUp.Invoke();
     }

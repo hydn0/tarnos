@@ -6,9 +6,9 @@ using TMPro;
 public abstract class Group : MonoBehaviour
 {
     [SerializeField] protected float experienceModifier = 1f;
-    [SerializeField] protected Progress progressObject;
-    protected List<Progress> progressObjects = new();
-    protected int progressObjectCount = 1;
+    [SerializeField] protected Progress progress;
+    protected List<Progress> progressList = new();
+    protected int progressCount = 1;
 
     [Header("UI")]
     [SerializeField] protected GameObject panel;
@@ -16,12 +16,12 @@ public abstract class Group : MonoBehaviour
 
     protected abstract BaseObject[] Objects { get; }
 
-    void Awake()
+    private void Awake()
     {
         InstantiateObjects();
-        if (progressObjectCount < Objects.Length)
+        if (progressCount < Objects.Length)
         {
-            DisplayNextRequirements(Objects[progressObjectCount].Requirements);
+            DisplayNextRequirements(Objects[progressCount].Requirements);
         }
     }
 
@@ -29,10 +29,10 @@ public abstract class Group : MonoBehaviour
     {
         for (int i = 0; i < Objects.Length; i++)
         {
-            Progress newObject = Instantiate(progressObject, panel.transform);
+            Progress newObject = Instantiate(progress, panel.transform);
             InitializeProgressObject(newObject, Objects[i]);
             newObject.LeveledUp.AddListener(OnLeveledUp);
-            progressObjects.Add(newObject);
+            progressList.Add(newObject);
             if (i != 0)
             {
                 newObject.gameObject.SetActive(false);
@@ -40,18 +40,18 @@ public abstract class Group : MonoBehaviour
         }
     }
 
-    protected abstract void InitializeProgressObject(Progress newProgressObject, BaseObject baseObj);
+    protected abstract void InitializeProgressObject(Progress newProgress, BaseObject baseObj);
 
     protected void OnLeveledUp()
     {
-        if (progressObjectCount < Objects.Length && AreAllRequirementsMet(Objects[progressObjectCount].Requirements))
+        if (progressCount < Objects.Length && AreAllRequirementsMet(Objects[progressCount].Requirements))
         {
-            ActivateObjects(Objects[progressObjectCount].name);
-            progressObjectCount += 1;
+            ActivateObjects(Objects[progressCount].name);
+            progressCount += 1;
 
-            if (progressObjectCount < Objects.Length)
+            if (progressCount < Objects.Length)
             {
-                DisplayNextRequirements(Objects[progressObjectCount].Requirements);
+                DisplayNextRequirements(Objects[progressCount].Requirements);
             }
             else
             {
@@ -63,7 +63,7 @@ public abstract class Group : MonoBehaviour
     private bool AreAllRequirementsMet(IEnumerable<BaseObject.Requirement> requirements)
     {
         return requirements.All(r => 
-            progressObjects.Any(o => o.name == r.Object.name && o.Level >= r.Level));
+            progressList.Any(o => o.name == r.Object.name && o.Level >= r.Level));
     }
 
     private void DisplayNextRequirements(List<BaseObject.Requirement> requirements)
@@ -78,7 +78,7 @@ public abstract class Group : MonoBehaviour
 
     private void ActivateObjects(string objectName)
     {
-        foreach (var obj in progressObjects.Where(o => o.name == objectName))
+        foreach (var obj in progressList.Where(o => o.name == objectName))
         {
             obj.gameObject.SetActive(true);
         }

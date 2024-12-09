@@ -6,10 +6,11 @@ public class GroupSkill : Group
 
     protected override BaseObject[] Objects => skills;
 
-    protected override void InitializeProgressObject(Progress newProgressObject, BaseObject baseObj)
+    protected override void InitializeProgressObject(Progress newProgress, BaseObject baseObj)
     {
+        ProgressSkill progressSkill = (ProgressSkill)newProgress;
         BaseSkill skill = (BaseSkill)baseObj;
-        newProgressObject.InitializeSkill(skill.name, "Skill", skill.Effect, skill.DailyExperience * experienceModifier);
+        progressSkill.InitializeSkill(skill.name, "Skill", skill.Effect, skill.DailyExperience * experienceModifier);
     }
 }
 

@@ -7,9 +7,10 @@ public class GroupJob : Group
 
     protected override BaseObject[] Objects => jobs;
 
-    protected override void InitializeProgressObject(Progress newProgressObject, BaseObject baseObj)
+    protected override void InitializeProgressObject(Progress newProgress, BaseObject baseObj)
     {
+        ProgressJob progressJob = (ProgressJob)newProgress;
         BaseJob job = (BaseJob)baseObj;
-        newProgressObject.InitializeJob(job.name, "Job", job.DailyIncome * incomeModifier, job.DailyExperience * experienceModifier);
+        progressJob.InitializeJob(job.name, "Job", job.DailyIncome * incomeModifier, job.DailyExperience * experienceModifier);
     }
 }

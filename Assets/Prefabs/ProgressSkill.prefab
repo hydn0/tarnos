@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 495847894704896464}
   - component: {fileID: 8748293669141086640}
   m_Layer: 0
-  m_Name: UI_Income/EffectText
+  m_Name: UI_EffectText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,8 +254,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8318732393234032584}
-        m_TargetAssemblyTypeName: ProgressObject, Assembly-CSharp
+      - m_Target: {fileID: 61672363226564044}
+        m_TargetAssemblyTypeName: Progress, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -543,9 +543,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3540011292334344601}
-  - component: {fileID: 8318732393234032584}
+  - component: {fileID: 61672363226564044}
   m_Layer: 0
-  m_Name: ProgressObject
+  m_Name: ProgressSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,7 +581,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8318732393234032584
+--- !u!114 &61672363226564044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -590,14 +590,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3779345321243572694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6039451b3e840a743878f29d9c8895a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fea37e1896aca64dbd312dcc6eb58c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DailyIncome: 0
-  Effect:
-    Name: 0
-    Multiplier: 0
-  DailyExperience: 0
+  DailyExperience: 1
+  MaxExperience: 5
   _incomeOrEffectText: {fileID: 8748293669141086640}
   _incomeOrEffectMuteText: {fileID: 7534548654926591005}
   _experienceProgressBar: {fileID: 1125365772008590745}
@@ -606,19 +603,7 @@ MonoBehaviour:
   _levelText: {fileID: 1172504071700471524}
   Selected:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   LeveledUp:
     m_PersistentCalls:
       m_Calls: []
@@ -634,7 +619,7 @@ GameObject:
   - component: {fileID: 6317163112615474894}
   - component: {fileID: 8798635212044979380}
   m_Layer: 0
-  m_Name: UI_ExperienceLeft
+  m_Name: UI_ExperienceLeftText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -977,7 +962,7 @@ GameObject:
   - component: {fileID: 1941203057224106029}
   - component: {fileID: 7534548654926591005}
   m_Layer: 0
-  m_Name: UI_Income/EffectMuteText
+  m_Name: UI_EffectMuteText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

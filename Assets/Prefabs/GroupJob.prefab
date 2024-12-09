@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 8139731595928087551}
   - component: {fileID: 2341146496680728106}
   m_Layer: 0
-  m_Name: JobGroup
+  m_Name: GroupJob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceModifier: 1
-  progressObject: {fileID: 8318732393234032584, guid: 95dfb531abe9d554b9ee8ba5c619587d, type: 3}
+  progress: {fileID: 1134861365083248798, guid: 95dfb531abe9d554b9ee8ba5c619587d, type: 3}
   panel: {fileID: 1977547160568899718}
   nextRequirementsText: {fileID: 7693105217479796271}
   incomeModifier: 1
