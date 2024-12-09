@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BaseSkill", menuName = "ScriptableObjects/BaseSkill")]
-public class BaseSkill : BaseObject
+[CreateAssetMenu(fileName = "ObjectProgressSkill", menuName = "ScriptableObjects/ObjectProgressSkill")]
+public class ObjectProgressSkill : ObjectProgress
 {
     public enum Modifiers
     {

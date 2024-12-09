@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseObject : ScriptableObject
+public class ObjectProgress : ScriptableObject
 {
     public float DailyExperience = 1f;
     public List<Requirement> Requirements;
@@ -9,7 +9,7 @@ public class BaseObject : ScriptableObject
     [System.Serializable]
     public struct Requirement
     {
-        public BaseObject Object;
+        public ObjectProgress Object;
         public int Level;
     }
 }

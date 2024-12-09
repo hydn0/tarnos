@@ -3,14 +3,14 @@ using UnityEngine;
 public class GroupJob : Group
 {
     [SerializeField] private float incomeModifier = 1f;
-    [SerializeField] private BaseJob[] jobs;
+    [SerializeField] private ObjectProgressJob[] jobs;
 
-    protected override BaseObject[] Objects => jobs;
+    protected override ObjectProgress[] Objects => jobs;
 
-    protected override void InitializeProgressObject(Progress newProgress, BaseObject baseObj)
+    protected override void InitializeProgressObject(Progress newProgress, ObjectProgress baseObj)
     {
         ProgressJob progressJob = (ProgressJob)newProgress;
-        BaseJob job = (BaseJob)baseObj;
+        ObjectProgressJob job = (ObjectProgressJob)baseObj;
         progressJob.InitializeJob(job.name, "Job", job.DailyIncome * incomeModifier, job.DailyExperience * experienceModifier);
     }
 }

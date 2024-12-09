@@ -14,7 +14,7 @@ public abstract class Group : MonoBehaviour
     [SerializeField] protected GameObject panel;
     [SerializeField] protected TextMeshProUGUI nextRequirementsText;
 
-    protected abstract BaseObject[] Objects { get; }
+    protected abstract ObjectProgress[] Objects { get; }
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public abstract class Group : MonoBehaviour
         }
     }
 
-    protected abstract void InitializeProgressObject(Progress newProgress, BaseObject baseObj);
+    protected abstract void InitializeProgressObject(Progress newProgress, ObjectProgress baseObj);
 
     protected void OnLeveledUp()
     {
@@ -60,13 +60,13 @@ public abstract class Group : MonoBehaviour
         }
     }
 
-    private bool AreAllRequirementsMet(IEnumerable<BaseObject.Requirement> requirements)
+    private bool AreAllRequirementsMet(IEnumerable<ObjectProgress.Requirement> requirements)
     {
         return requirements.All(r => 
             progressList.Any(o => o.name == r.Object.name && o.Level >= r.Level));
     }
 
-    private void DisplayNextRequirements(List<BaseObject.Requirement> requirements)
+    private void DisplayNextRequirements(List<ObjectProgress.Requirement> requirements)
     {
         string nextRequirements = "Required:";
         foreach (var requirement in requirements)

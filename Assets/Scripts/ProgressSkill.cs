@@ -1,6 +1,6 @@
 public class ProgressSkill : Progress
 {
-    public BaseSkill.Modifier Effect { get; private set; }
+    public ObjectProgressSkill.Modifier Effect { get; private set; }
 
     protected override void Start()
     {
@@ -9,7 +9,7 @@ public class ProgressSkill : Progress
         Selected.AddListener(_player.NewSkillActivated);
     }
 
-    public void InitializeSkill(string progressName, string progressTag, BaseSkill.Modifier effect, float dailyExperience)
+    public void InitializeSkill(string progressName, string progressTag, ObjectProgressSkill.Modifier effect, float dailyExperience)
     {
         name = progressName;
         tag = progressTag;

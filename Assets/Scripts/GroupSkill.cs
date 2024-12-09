@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class GroupSkill : Group
 {
-    [SerializeField] private BaseSkill[] skills;
+    [SerializeField] private ObjectProgressSkill[] skills;
 
-    protected override BaseObject[] Objects => skills;
+    protected override ObjectProgress[] Objects => skills;
 
-    protected override void InitializeProgressObject(Progress newProgress, BaseObject baseObj)
+    protected override void InitializeProgressObject(Progress newProgress, ObjectProgress baseObj)
     {
         ProgressSkill progressSkill = (ProgressSkill)newProgress;
-        BaseSkill skill = (BaseSkill)baseObj;
+        ObjectProgressSkill skill = (ObjectProgressSkill)baseObj;
         progressSkill.InitializeSkill(skill.name, "Skill", skill.Effect, skill.DailyExperience * experienceModifier);
     }
 }
