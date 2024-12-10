@@ -19,7 +19,7 @@ public class GroupJob : Group
         ProgressJob progressJob = (ProgressJob)progress;
         foreach (ObjectProgressJob objectProgressJob in objectJobs)
         {
-            if (progress.name == objectProgressJob.name)
+            if (progressJob.name == objectProgressJob.name)
             {
                 progressJob.DailyIncome = objectProgressJob.IncomeScaling.Evaluate(progressJob.Level);
             }

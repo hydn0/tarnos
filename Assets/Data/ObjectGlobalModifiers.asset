@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d7821c8c63fd4eb77969bcfeda5db, type: 3}
-  m_Name: ObjectModifiers
+  m_Name: ObjectGlobalModifiers
   m_EditorClassIdentifier: 
-  Modifiers:
+  GlobalModifiers:
   - ID: 0
-    Multiplier: 0
-  - ID: 0
-    Multiplier: 0
-  - ID: 0
-    Multiplier: 0
-  - ID: 0
-    Multiplier: 0
+    Multiplier: 1
+  - ID: 1
+    Multiplier: 1
+  - ID: 2
+    Multiplier: 1
+  - ID: 3
+    Multiplier: 1

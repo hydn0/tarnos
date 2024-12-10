@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GroupSkill : Group
 {
-    [SerializeField] private ObjectModifiers objectModifiers;
+    [SerializeField] private ObjectGlobalModifiers objectGlobalModifiers;
     [SerializeField] private ObjectProgressSkill[] objectSkills;
 
     protected override ObjectProgress[] Objects => objectSkills;
@@ -16,6 +16,23 @@ public class GroupSkill : Group
 
     protected override void ScaleProgress(Progress progress)
     {
-        return;
+        ProgressSkill progressSkill = (ProgressSkill)progress;
+        foreach (ObjectProgressSkill objectProgressSkill in objectSkills)
+        {
+            if (progressSkill.name == objectProgressSkill.name)
+            {
+                progressSkill.Effect.Multiplier = objectProgressSkill.EffectScaling.Evaluate(progressSkill.Level);
+            }
+        }
+
+        for (int i = 0; i < objectGlobalModifiers.GlobalModifiers.Count; i++)
+        {
+            if (objectGlobalModifiers.GlobalModifiers[i].ID == progressSkill.Effect.ID)
+            {
+                ObjectGlobalModifiers.Modifier modifier = objectGlobalModifiers.GlobalModifiers[i];
+                modifier.Multiplier = progressSkill.Effect.Multiplier;
+                objectGlobalModifiers.GlobalModifiers[i] = modifier;
+            }
+        }
     }
 }

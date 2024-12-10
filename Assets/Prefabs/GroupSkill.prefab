@@ -288,4 +288,5 @@ MonoBehaviour:
   progress: {fileID: 61672363226564044, guid: 4e852bbf3621af14f93a44c5f3132d97, type: 3}
   panel: {fileID: 1977547160568899718}
   nextRequirementsText: {fileID: 7693105217479796271}
-  skills: []
+  objectGlobalModifiers: {fileID: 11400000, guid: 81461ea96405061418c4921f1fc09c8b, type: 2}
+  objectSkills: []
