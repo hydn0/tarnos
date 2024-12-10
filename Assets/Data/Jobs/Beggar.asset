@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ade073e255ff045866a2df20f733eb, type: 3}
   m_Name: Beggar
   m_EditorClassIdentifier: 
-  DailyIncome: 1
   DailyExperience: 1
   Requirements: []
+  DailyIncome: 1
+  IncomeScaling:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

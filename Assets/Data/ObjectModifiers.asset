@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d7821c8c63fd4eb77969bcfeda5db, type: 3}
   m_Name: ObjectModifiers
   m_EditorClassIdentifier: 
-  Modifiers: []
+  Modifiers:
+  - ID: 0
+    Multiplier: 0
+  - ID: 0
+    Multiplier: 0
+  - ID: 0
+    Multiplier: 0
+  - ID: 0
+    Multiplier: 0

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CanvasManager : MonoBehaviour
+public class CanvasGroupManager : MonoBehaviour
 {
     [SerializeField] private CanvasGroup[] canvasGroups;
 

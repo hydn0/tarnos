@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DailyExperience: 1
   Requirements: []
+  Effect:
+    ID: 0
+    Multiplier: 0
