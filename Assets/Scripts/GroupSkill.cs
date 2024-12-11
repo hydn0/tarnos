@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class GroupSkill : Group
 {
@@ -21,10 +22,18 @@ public class GroupSkill : Group
         {
             if (progressSkill.name == objectProgressSkill.name)
             {
-                progressSkill.Effect.Multiplier = objectProgressSkill.EffectScaling.Evaluate(progressSkill.Level);
-            }
-        }
+                float normalizedLevel = progressSkill.Level / objectProgressSkill.EffectScaling.MaxLevel;
+                float curveY = objectProgressSkill.EffectScaling.Curve.Evaluate(normalizedLevel);
 
+                var matchingVector = objectProgressSkill.EffectScaling.curveYAndMultiplier
+                    .FirstOrDefault(v => Mathf.Approximately(v.x, curveY));
+
+                if (matchingVector != default(Vector2))
+                {
+                    progressSkill.Effect.Multiplier = matchingVector.y;
+                }
+}
+        }
         for (int i = 0; i < objectGlobalModifiers.GlobalModifiers.Count; i++)
         {
             if (objectGlobalModifiers.GlobalModifiers[i].ID == progressSkill.Effect.ID)

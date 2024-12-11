@@ -21,7 +21,15 @@ public class GroupJob : Group
         {
             if (progressJob.name == objectProgressJob.name)
             {
-                progressJob.DailyIncome = objectProgressJob.IncomeScaling.Evaluate(progressJob.Level);
+                foreach (Vector2 curveYAndMultiplier in objectProgressJob.IncomeScaling.curveYAndMultiplier)
+                {
+                    float normalizedLevel = progressJob.Level / objectProgressJob.IncomeScaling.MaxLevel;
+                    float curveY = objectProgressJob.IncomeScaling.Curve.Evaluate(normalizedLevel);
+                    if (curveYAndMultiplier.x == curveY)
+                    {
+                        progressJob.DailyIncome *= curveYAndMultiplier.y;
+                    }
+                }
             }
         }
     }

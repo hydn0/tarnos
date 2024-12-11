@@ -4,5 +4,5 @@ using UnityEngine;
 public class ObjectProgressSkill : ObjectProgress
 {
     public ObjectGlobalModifiers.Modifier Effect;
-    public AnimationCurve EffectScaling;
+    public ObjectScalingCurve EffectScaling;
 }

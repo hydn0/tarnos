@@ -4,5 +4,5 @@ using UnityEngine;
 public class ObjectProgressJob : ObjectProgress
 {
     public float DailyIncome = 1f;
-    public AnimationCurve IncomeScaling;
+    public ObjectScalingCurve IncomeScaling;
 }
