@@ -17,3 +17,4 @@ MonoBehaviour:
   - Object: {fileID: 11400000, guid: 04269b9eee5dd7d498d7c8214f2ffbd0, type: 2}
     Level: 1
   DailyIncome: 2
+  IncomeScaling: {fileID: 11400000, guid: 7ee618c568e5eac44b3d685b75debbca, type: 2}

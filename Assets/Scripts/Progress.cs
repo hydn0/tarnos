@@ -6,7 +6,6 @@ using TMPro;
 
 public class Progress : MonoBehaviour
 {
-    [Header("Experience")]
     public float DailyExperience = 1f;
 
     [Header("UI")]
@@ -17,6 +16,7 @@ public class Progress : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI _experienceLeftText;
     [SerializeField] protected TextMeshProUGUI _levelText;
 
+    [SerializeField] protected ObjectGlobalModifiers _objectGlobalModifiers;
     protected float _experience;
     protected Player _player;
 
@@ -51,7 +51,7 @@ public class Progress : MonoBehaviour
         Selected.Invoke(this);
     }
 
-    public IEnumerator IncrementXP()
+    public virtual IEnumerator IncrementXP()
     {
         while (true)
         {

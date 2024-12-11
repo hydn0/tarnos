@@ -594,19 +594,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DailyExperience: 1
-  MaxExperience: 5
   _incomeOrEffectText: {fileID: 8748293669141086640}
   _incomeOrEffectMuteText: {fileID: 7534548654926591005}
   _experienceProgressBar: {fileID: 1125365772008590745}
   _dailyExperienceText: {fileID: 352168078460560456}
   _experienceLeftText: {fileID: 8798635212044979380}
   _levelText: {fileID: 1172504071700471524}
+  _objectGlobalModifiers: {fileID: 11400000, guid: 81461ea96405061418c4921f1fc09c8b, type: 2}
   Selected:
     m_PersistentCalls:
       m_Calls: []
   LeveledUp:
     m_PersistentCalls:
       m_Calls: []
+  Effect:
+    ID: 0
+    Multiplier: 0
 --- !u!1 &5322317604909307134
 GameObject:
   m_ObjectHideFlags: 0

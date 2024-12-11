@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ade073e255ff045866a2df20f733eb, type: 3}
   m_Name: Squire
   m_EditorClassIdentifier: 
-  DailyIncome: 1
   DailyExperience: 1
   Requirements: []
+  DailyIncome: 1
+  IncomeScaling: {fileID: 11400000, guid: 7ee618c568e5eac44b3d685b75debbca, type: 2}

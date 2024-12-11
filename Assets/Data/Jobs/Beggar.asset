@@ -15,9 +15,4 @@ MonoBehaviour:
   DailyExperience: 1
   Requirements: []
   DailyIncome: 1
-  IncomeScaling:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  IncomeScaling: {fileID: 11400000, guid: 7ee618c568e5eac44b3d685b75debbca, type: 2}
