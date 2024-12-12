@@ -1,6 +1,3 @@
-using System.Collections;
-using UnityEngine;
-
 public class ProgressSkill : Progress
 {
     public ObjectGlobalModifiers.Modifier Effect;
@@ -21,15 +18,9 @@ public class ProgressSkill : Progress
         UpdateUI();
     }
 
-    public override IEnumerator IncrementXP()
+    protected override float CalculateExperience()
     {
-        while (true)
-        {
-            float experienceAddend = DailyExperience * _objectGlobalModifiers.GlobalModifiers[0].Multiplier * _objectGlobalModifiers.GlobalModifiers[3].Multiplier;
-            Experience += experienceAddend;
-            UpdateUI();
-            yield return new WaitForSeconds(1f);
-        }
+        return DailyExperience * _objectGlobalModifiers.GlobalModifiers[0].Multiplier * _objectGlobalModifiers.GlobalModifiers[3].Multiplier;
     }
 
     protected override void UpdateUI()

@@ -1,6 +1,3 @@
-using System.Collections;
-using UnityEngine;
-
 public class ProgressJob : Progress
 {
     public float DailyIncome;
@@ -23,21 +20,15 @@ public class ProgressJob : Progress
         UpdateUI();
     }
 
-    public override IEnumerator IncrementXP()
+    protected override float CalculateExperience()
     {
-        while (true)
-        {
-            float experienceAddend = DailyExperience * _objectGlobalModifiers.GlobalModifiers[0].Multiplier * _objectGlobalModifiers.GlobalModifiers[1].Multiplier;
-            Experience += experienceAddend;
-            DailyIncome = _startIncome * _objectGlobalModifiers.GlobalModifiers[2].Multiplier;
-            UpdateUI();
-            yield return new WaitForSeconds(1f);
-        }
+        return DailyExperience * _objectGlobalModifiers.GlobalModifiers[0].Multiplier * _objectGlobalModifiers.GlobalModifiers[1].Multiplier;
     }
 
     protected override void UpdateUI()
     {
         base.UpdateUI();
+        DailyIncome = _startIncome * _objectGlobalModifiers.GlobalModifiers[2].Multiplier;
         _incomeOrEffectText.text = DailyIncome.ToString();
     }
 }

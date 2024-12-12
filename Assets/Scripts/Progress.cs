@@ -55,10 +55,16 @@ public class Progress : MonoBehaviour
     {
         while (true)
         {
-            Experience += DailyExperience;
+            float experienceAddend = CalculateExperience();
+            Experience += experienceAddend;
             UpdateUI();
             yield return new WaitForSeconds(1f);
         }
+    }
+    
+    protected virtual float CalculateExperience()
+    {
+        return DailyExperience;
     }
 
     protected virtual void UpdateUI()
