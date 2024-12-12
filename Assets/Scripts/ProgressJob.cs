@@ -1,13 +1,11 @@
 public class ProgressJob : Progress
 {
     public float DailyIncome;
-    private float _startIncome;
 
     protected override void Start()
     {
         base.Start();
         _incomeOrEffectMuteText.text = "Income";
-        _startIncome = DailyIncome;
         Selected.AddListener(_player.NewJobActivated);
     }
 
@@ -28,7 +26,6 @@ public class ProgressJob : Progress
     protected override void UpdateUI()
     {
         base.UpdateUI();
-        DailyIncome = _startIncome * _objectGlobalModifiers.JobIncome;
         _incomeOrEffectText.text = DailyIncome.ToString();
     }
 }

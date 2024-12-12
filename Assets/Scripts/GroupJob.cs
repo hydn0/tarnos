@@ -25,7 +25,7 @@ public class GroupJob : Group
                 {
                     float normalizedLevel = progressJob.Level / objectProgressJob.IncomeScaling.MaxLevel;
                     float curveY = objectProgressJob.IncomeScaling.Curve.Evaluate(normalizedLevel);
-                    if (curveYAndMultiplier.x == curveY)
+                    if (Mathf.Approximately(curveYAndMultiplier.x, curveY))
                     {
                         progressJob.DailyIncome *= curveYAndMultiplier.y;
                     }
