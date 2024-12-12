@@ -1,23 +1,25 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ObjectGlobalModifiers", menuName = "ScriptableObjects/ObjectGlobalModifiers")]
 public class ObjectGlobalModifiers : ScriptableObject
 {
-    public List<Modifier> GlobalModifiers;
+    public float AllExperience;
+    public float JobExperience;
+    public float SkillExperience;
+    public float JobIncome;
 
-    public enum ModifierID
+    public enum ModifierNames
     {
         AllExperience,
         JobExperience,
-        JobIncome,
-        SkillExperience
+        SkillExperience,
+        JobIncome
     }
 
     [System.Serializable]
     public struct Modifier
     {
-        public ModifierID ID;
+        public ModifierNames Name;
         public float Multiplier;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 
-public class Progress : MonoBehaviour
+public abstract class Progress : MonoBehaviour
 {
     public float DailyExperience = 1f;
 
@@ -55,17 +55,14 @@ public class Progress : MonoBehaviour
     {
         while (true)
         {
-            float experienceAddend = CalculateExperience();
+            float experienceAddend = CalculateExperienceAddend();
             Experience += experienceAddend;
             UpdateUI();
             yield return new WaitForSeconds(1f);
         }
     }
-    
-    protected virtual float CalculateExperience()
-    {
-        return DailyExperience;
-    }
+
+    protected abstract float CalculateExperienceAddend();
 
     protected virtual void UpdateUI()
     {

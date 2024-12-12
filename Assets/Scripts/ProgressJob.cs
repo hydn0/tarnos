@@ -20,15 +20,15 @@ public class ProgressJob : Progress
         UpdateUI();
     }
 
-    protected override float CalculateExperience()
+    protected override float CalculateExperienceAddend()
     {
-        return DailyExperience * _objectGlobalModifiers.GlobalModifiers[0].Multiplier * _objectGlobalModifiers.GlobalModifiers[1].Multiplier;
+        return DailyExperience * _objectGlobalModifiers.AllExperience * _objectGlobalModifiers.JobExperience;
     }
 
     protected override void UpdateUI()
     {
         base.UpdateUI();
-        DailyIncome = _startIncome * _objectGlobalModifiers.GlobalModifiers[2].Multiplier;
+        DailyIncome = _startIncome * _objectGlobalModifiers.JobIncome;
         _incomeOrEffectText.text = DailyIncome.ToString();
     }
 }

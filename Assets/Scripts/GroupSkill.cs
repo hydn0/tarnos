@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Linq;
+using System;
+using System.Reflection;
 
 public class GroupSkill : Group
 {
@@ -30,17 +32,21 @@ public class GroupSkill : Group
 
                 if (matchingVector != default(Vector2))
                 {
-                    progressSkill.Effect.Multiplier = matchingVector.y;
+                    progressSkill.Modifier.Multiplier = matchingVector.y;
                 }
-}
+            }
         }
-        for (int i = 0; i < objectGlobalModifiers.GlobalModifiers.Count; i++)
+        ApplyModifierToGlobal(progressSkill);
+    }
+
+    private void ApplyModifierToGlobal(ProgressSkill progressSkill)
+    {
+        Type globalModifiersClass = typeof(ObjectGlobalModifiers);
+        foreach (FieldInfo fieldInfo in globalModifiersClass.GetFields())
         {
-            if (objectGlobalModifiers.GlobalModifiers[i].ID == progressSkill.Effect.ID)
+            if (fieldInfo.Name == progressSkill.Modifier.Name.ToString())
             {
-                ObjectGlobalModifiers.Modifier modifier = objectGlobalModifiers.GlobalModifiers[i];
-                modifier.Multiplier = progressSkill.Effect.Multiplier;
-                objectGlobalModifiers.GlobalModifiers[i] = modifier;
+                fieldInfo.SetValue(objectGlobalModifiers, progressSkill.Modifier.Multiplier);
             }
         }
     }

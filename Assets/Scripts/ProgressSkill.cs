@@ -1,6 +1,6 @@
 public class ProgressSkill : Progress
 {
-    public ObjectGlobalModifiers.Modifier Effect;
+    public ObjectGlobalModifiers.Modifier Modifier;
 
     protected override void Start()
     {
@@ -9,23 +9,23 @@ public class ProgressSkill : Progress
         Selected.AddListener(_player.NewSkillActivated);
     }
 
-    public void InitializeSkill(string progressName, string progressTag, ObjectGlobalModifiers.Modifier effect, float dailyExperience)
+    public void InitializeSkill(string progressName, string progressTag, ObjectGlobalModifiers.Modifier modifier, float dailyExperience)
     {
         name = progressName;
         tag = progressTag;
-        Effect = effect;
+        Modifier = modifier;
         DailyExperience = dailyExperience;
         UpdateUI();
     }
 
-    protected override float CalculateExperience()
+    protected override float CalculateExperienceAddend()
     {
-        return DailyExperience * _objectGlobalModifiers.GlobalModifiers[0].Multiplier * _objectGlobalModifiers.GlobalModifiers[3].Multiplier;
+        return DailyExperience * _objectGlobalModifiers.AllExperience * _objectGlobalModifiers.SkillExperience;
     }
 
     protected override void UpdateUI()
     {
         base.UpdateUI();
-        _incomeOrEffectText.text = Effect.ID + ": " + Effect.Multiplier.ToString();
+        _incomeOrEffectText.text = Modifier.Name + ": " + Modifier.Multiplier.ToString();
     }
 }

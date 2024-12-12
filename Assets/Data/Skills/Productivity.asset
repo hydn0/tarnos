@@ -15,6 +15,6 @@ MonoBehaviour:
   DailyExperience: 1
   Requirements: []
   Effect:
-    ID: 1
+    Name: 1
     Multiplier: 1
   EffectScaling: {fileID: 11400000, guid: 7ee618c568e5eac44b3d685b75debbca, type: 2}

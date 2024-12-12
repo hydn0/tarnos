@@ -17,6 +17,6 @@ MonoBehaviour:
   - Object: {fileID: 11400000, guid: 726fd3683666f3c488f94ebdd6815c2c, type: 2}
     Level: 2
   Effect:
-    ID: 2
+    Name: 3
     Multiplier: 2
   EffectScaling: {fileID: 11400000, guid: 7ee618c568e5eac44b3d685b75debbca, type: 2}
