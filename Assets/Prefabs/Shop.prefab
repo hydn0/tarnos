@@ -286,5 +286,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectItems:
   - {fileID: 11400000, guid: b6ef34c107b7bcb47a7cef389090a8b9, type: 2}
+  - {fileID: 11400000, guid: 4a90c389464ef6a4b9b6683a766096fc, type: 2}
   item: {fileID: 2229492366286995692, guid: bbc06cd17f8743f418eb3e1eb24d09f8, type: 3}
   panel: {fileID: 1977547160568899718}

@@ -36,7 +36,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  MaxLevel: 50
+  MaxLevel: 10
   curveYAndMultiplier:
-  - {x: 0.19, y: 2}
-  - {x: 0.36, y: 3}
+  - {x: 0.19, y: 1.5}
+  - {x: 0.36, y: 2}

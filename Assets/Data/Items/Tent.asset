@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6ade073e255ff045866a2df20f733eb, type: 3}
-  m_Name: Beggar
+  m_Script: {fileID: 11500000, guid: 3dc0e8f366c8dc04391c6e8a6fba2069, type: 3}
+  m_Name: Tent
   m_EditorClassIdentifier: 
-  DailyExperience: 5
-  Requirements: []
-  DailyIncome: 1
-  IncomeScaling: {fileID: 11400000, guid: 7ee618c568e5eac44b3d685b75debbca, type: 2}
+  Effect:
+    Name: 3
+    Multiplier: 10
+  Expense: 5

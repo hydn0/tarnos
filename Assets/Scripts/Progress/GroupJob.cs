@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GroupJob : Group
 {
+    [SerializeField] private ObjectGlobalModifiers _objectGlobalModifiers;
     [SerializeField] private float incomeModifier = 1f;
     [SerializeField] private ObjectProgressJob[] objectJobs;
 
@@ -27,7 +28,8 @@ public class GroupJob : Group
                     float curveY = objectProgressJob.IncomeScaling.Curve.Evaluate(normalizedLevel);
                     if (Mathf.Approximately(curveYAndMultiplier.x, curveY))
                     {
-                        progressJob.DailyIncome *= curveYAndMultiplier.y;
+                        float multiplier = _objectGlobalModifiers.JobIncome * curveYAndMultiplier.y;
+                        progressJob.DailyIncome *= multiplier;
                     }
                 }
             }

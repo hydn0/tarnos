@@ -30,7 +30,7 @@ public abstract class Progress : MonoBehaviour
             if (value >= MaxExperience)
             {
                 _experience = 0f;
-                MaxExperience += 1f;
+                MaxExperience += 100f;
                 Level += 1;
                 LevelUp();
             }
@@ -40,7 +40,7 @@ public abstract class Progress : MonoBehaviour
             }
         }
     }
-    public float MaxExperience { get; protected set; } = 5f;
+    public float MaxExperience { get; protected set; } = 100f;
 
     protected abstract void Start();
 

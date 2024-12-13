@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ade073e255ff045866a2df20f733eb, type: 3}
   m_Name: Miner
   m_EditorClassIdentifier: 
-  DailyExperience: 1
+  DailyExperience: 5
   Requirements:
   - Object: {fileID: 11400000, guid: 04269b9eee5dd7d498d7c8214f2ffbd0, type: 2}
     Level: 2

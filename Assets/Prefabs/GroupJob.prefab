@@ -288,5 +288,6 @@ MonoBehaviour:
   progress: {fileID: 1134861365083248798, guid: 95dfb531abe9d554b9ee8ba5c619587d, type: 3}
   panel: {fileID: 1977547160568899718}
   nextRequirementsText: {fileID: 7693105217479796271}
+  _objectGlobalModifiers: {fileID: 11400000, guid: 81461ea96405061418c4921f1fc09c8b, type: 2}
   incomeModifier: 1
-  jobs: []
+  objectJobs: []

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ade073e255ff045866a2df20f733eb, type: 3}
   m_Name: Footman
   m_EditorClassIdentifier: 
-  DailyExperience: 1
+  DailyExperience: 5
   Requirements:
   - Object: {fileID: 11400000, guid: 10df738b6c3cda14e99abeb1b15a810b, type: 2}
     Level: 1
