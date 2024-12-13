@@ -4,9 +4,7 @@ public class ProgressSkill : Progress
 
     protected override void Start()
     {
-        base.Start();
         _incomeOrEffectMuteText.text = "Effect";
-        Selected.AddListener(_player.NewSkillActivated);
     }
 
     public void InitializeSkill(string progressName, string progressTag, ObjectGlobalModifiers.Modifier modifier, float dailyExperience)

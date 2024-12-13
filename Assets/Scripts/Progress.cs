@@ -18,9 +18,7 @@ public abstract class Progress : MonoBehaviour
 
     [SerializeField] protected ObjectGlobalModifiers _objectGlobalModifiers;
     protected float _experience;
-    protected Player _player;
 
-    public UnityEvent<Progress> Selected = new();
     public UnityEvent<Progress> LeveledUp = new();
 
     public float Level { get; protected set; }
@@ -29,7 +27,6 @@ public abstract class Progress : MonoBehaviour
         get => _experience;
         protected set
         {
-            _experience = value;
             if (value >= MaxExperience)
             {
                 _experience = 0f;
@@ -37,18 +34,19 @@ public abstract class Progress : MonoBehaviour
                 Level += 1;
                 LevelUp();
             }
+            else
+            {
+                _experience = value;
+            }
         }
     }
     public float MaxExperience { get; protected set; } = 5f;
 
-    protected virtual void Start()
-    {
-        _player = GameObject.FindWithTag("Player").GetComponent<Player>();
-    }
+    protected abstract void Start();
 
     public void OnClick()
     {
-        Selected.Invoke(this);
+        GameManager.Singleton.NewProgressClicked(this);
     }
 
     public virtual IEnumerator IncrementXP()
