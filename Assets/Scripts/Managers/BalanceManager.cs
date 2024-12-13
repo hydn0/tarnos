@@ -15,7 +15,7 @@ public class BalanceManager : MonoBehaviour
         {
             if (value >= _maxCopper)
             {
-                _currentCopper = 0f;
+                _currentCopper = 0;
                 _currentSilver += 1;
             }
             else
@@ -30,19 +30,34 @@ public class BalanceManager : MonoBehaviour
         get => _currentSilver;
         set
         {
-            if (value >= _maxSilver)
+            _currentSilver = value;
+            if (_currentSilver >= _maxSilver)
             {
-                _currentSilver = 0f;
+                _currentSilver = 0;
                 _currentGold += 1;
             }
-            else
+            else if (_currentSilver <= 0)
             {
-                _currentSilver = value;
+                _currentSilver = 0;
+                Copper -= 1;
             }
         }
     }
 
-    public float Gold => _currentGold;
+    public float Gold
+    {
+        get => _currentGold;
+        set
+        {
+            _currentGold = value;
+            if (_currentGold <= 0)
+            {
+                _currentGold = 0;
+                Silver -= 1;
+            }
+        }
+    }
+
     public static BalanceManager Singleton { get; private set; }
 
     private void Awake()
@@ -56,4 +71,15 @@ public class BalanceManager : MonoBehaviour
         Singleton = this;
     }
 
+    public float GetNetIncome()
+    {
+        if (GameManager.Singleton.CurrentItem)
+        {
+            return GameManager.Singleton.CurrentJob.DailyIncome - GameManager.Singleton.CurrentItem.Expense;;
+        }
+        else
+        {
+            return GameManager.Singleton.CurrentJob.DailyIncome;
+        }
+    }
 }

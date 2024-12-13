@@ -243,9 +243,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8139731595928087551}
-  - component: {fileID: 3207588032800217326}
+  - component: {fileID: 5067918446235794910}
   m_Layer: 0
-  m_Name: GroupSkill
+  m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,7 +272,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3207588032800217326
+--- !u!114 &5067918446235794910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,12 +281,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8865517909276052999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 847541d70c30abd4aac2cbe1ae7606f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 110d45ef92ea9564f940004582c1666e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experienceModifier: 1
-  progress: {fileID: 61672363226564044, guid: 4e852bbf3621af14f93a44c5f3132d97, type: 3}
+  _objectItems:
+  - {fileID: 11400000, guid: b6ef34c107b7bcb47a7cef389090a8b9, type: 2}
+  item: {fileID: 2229492366286995692, guid: bbc06cd17f8743f418eb3e1eb24d09f8, type: 3}
   panel: {fileID: 1977547160568899718}
-  nextRequirementsText: {fileID: 7693105217479796271}
-  _objectGlobalModifiers: {fileID: 11400000, guid: 81461ea96405061418c4921f1fc09c8b, type: 2}
-  _objectSkills: []

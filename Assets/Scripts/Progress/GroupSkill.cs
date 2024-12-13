@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class GroupSkill : Group
 {
-    [SerializeField] private ObjectGlobalModifiers objectGlobalModifiers;
-    [SerializeField] private ObjectProgressSkill[] objectSkills;
+    [SerializeField] private ObjectGlobalModifiers _objectGlobalModifiers;
+    [SerializeField] private ObjectProgressSkill[] _objectSkills;
 
-    protected override ObjectProgress[] Objects => objectSkills;
+    protected override ObjectProgress[] Objects => _objectSkills;
 
     protected override void InitializeProgressObject(Progress newProgress, ObjectProgress progressObj)
     {
@@ -20,7 +20,7 @@ public class GroupSkill : Group
     protected override void ScaleProgress(Progress progress)
     {
         ProgressSkill progressSkill = (ProgressSkill)progress;
-        foreach (ObjectProgressSkill objectProgressSkill in objectSkills)
+        foreach (ObjectProgressSkill objectProgressSkill in _objectSkills)
         {
             if (progressSkill.name == objectProgressSkill.name)
             {
@@ -46,7 +46,8 @@ public class GroupSkill : Group
         {
             if (fieldInfo.Name == progressSkill.Modifier.Name.ToString())
             {
-                fieldInfo.SetValue(objectGlobalModifiers, progressSkill.Modifier.Multiplier);
+                float currentValue = (float)fieldInfo.GetValue(_objectGlobalModifiers);
+                fieldInfo.SetValue(_objectGlobalModifiers, currentValue + progressSkill.Modifier.Multiplier);
             }
         }
     }

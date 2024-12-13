@@ -28,7 +28,7 @@ public class UIGame : MonoBehaviour
         dayText.text = "Day: " + GameManager.Singleton.Day;
         ageText.text = "Age: " + GameManager.Singleton.Age;
         balanceText.text = GetBalance();
-        netBalanceText.text = "Net/day: ";
+        netBalanceText.text = "Net/day: " + BalanceManager.Singleton.GetNetIncome();
 
         if (GameManager.Singleton.CurrentJob != null)
         {
@@ -77,8 +77,6 @@ public class UIGame : MonoBehaviour
 
     public void OnTogglePause(Toggle toggle)
     {
-        // If toggle is ON, we want to pause the game
-        // If toggle is OFF, we want to unpause
         GameManager.Singleton.TogglePause(toggle.isOn);
     }
 }

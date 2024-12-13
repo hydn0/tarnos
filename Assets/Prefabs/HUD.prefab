@@ -1067,8 +1067,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8119274179080389843}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: TogglePause
+        m_TargetAssemblyTypeName: UIGame, Assembly-CSharp
+        m_MethodName: OnTogglePause
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 6237380259437616256}
@@ -1248,8 +1248,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -123, y: 153}
-  m_SizeDelta: {x: 65.997, y: 32.861}
+  m_AnchoredPosition: {x: -26.8041, y: 153}
+  m_SizeDelta: {x: 258.3888, y: 32.861}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7316935463195674624
 CanvasRenderer:

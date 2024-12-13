@@ -25,7 +25,15 @@ public class ProgressJob : Progress
         {
             float experienceAddend = CalculateExperienceAddend();
             Experience += experienceAddend;
-            BalanceManager.Singleton.Copper += 1;
+            if (GameManager.Singleton.CurrentItem)
+            {
+                float newIncome = DailyIncome - GameManager.Singleton.CurrentItem.Expense;
+                BalanceManager.Singleton.Copper += newIncome;
+            }
+            else
+            {
+                BalanceManager.Singleton.Copper += DailyIncome;
+            }
             UpdateUI();
             yield return new WaitForSeconds(1f);
         }
