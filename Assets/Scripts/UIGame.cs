@@ -42,7 +42,14 @@ public class UIGame : MonoBehaviour
             currentJobText.text = "No Job";
         }
 
-        expenseText.text = "Expense/day: ";
+        if (GameManager.Singleton.CurrentItem)
+        {
+            expenseText.text = "Expense/day: " + GameManager.Singleton.CurrentItem.Expense;
+        }
+        else
+        {
+            expenseText.text = "Expense/day: 0";
+        }
 
         if (GameManager.Singleton.CurrentSkill != null)
         {

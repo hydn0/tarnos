@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d7821c8c63fd4eb77969bcfeda5db, type: 3}
   m_Name: ObjectGlobalModifiers
   m_EditorClassIdentifier: 
-  AllExperience: 3
+  AllExperience: 1
   JobExperience: 1
   SkillExperience: 1
   JobIncome: 1

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect:
     Name: 0
-    Multiplier: 1
-  Expense: 0
+    Multiplier: 10
+  Expense: 1
