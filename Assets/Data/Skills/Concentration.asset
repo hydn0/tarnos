@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae52daa53f6403e4ca54761137acc8cf, type: 3}
+  m_Script: {fileID: 11500000, guid: e142f44b03740c14197b5b8a3becb359, type: 3}
   m_Name: Concentration
   m_EditorClassIdentifier: 
-  DailyExperience: 1
   Requirements: []
-  Effect:
-    ID: 0
-    Multiplier: 1
-  EffectScaling: {fileID: 11400000, guid: 7ee618c568e5eac44b3d685b75debbca, type: 2}
+  DailyExp: 1
+  Effect: 0
+  Multiplier: 0

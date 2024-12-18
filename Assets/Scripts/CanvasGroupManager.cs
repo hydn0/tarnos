@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class CanvasGroupManager : MonoBehaviour
 {
-    [SerializeField] private CanvasGroup[] canvasGroups;
+    [SerializeField]
+    private CanvasGroup[] canvasGroups;
 
-    public void OnCanvasButtonClick(CanvasGroup newCanvasGroup)
+    public void SetVisible(CanvasGroup newCanvasGroup)
     {
         foreach (CanvasGroup canvasGroup in canvasGroups)
         {
