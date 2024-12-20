@@ -88,6 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8139731595928087551}
+  - component: {fileID: 4002080548705830056}
   - component: {fileID: 8793250820676469324}
   - component: {fileID: 1734195647720521052}
   - component: {fileID: 4340959707963416688}
@@ -119,6 +120,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 900, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4002080548705830056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865517909276052999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61c5da44364c3540b2b772a9d45694d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _categoryObjects: []
 --- !u!114 &8793250820676469324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,12 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c285ef719cd288d468156edf2470976d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _category: {fileID: 4002080548705830056}
   _nextRequirements: {fileID: 8996567631813556297}
-  _soObjects: []
-  _uiObject: {fileID: 0}
-  UIObjectsInstantiated:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &1734195647720521052
 CanvasRenderer:
   m_ObjectHideFlags: 0
