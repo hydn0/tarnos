@@ -38,9 +38,4 @@ public class Progress : MonoBehaviour
     public float MaxExp => _maxExp;
     public RequirementProgress[] Requirements => _requirements;
     public string RequirementID => _requirementID;
-
-    private void Awake()
-    {
-        tag = "Progress";
-    }
 }

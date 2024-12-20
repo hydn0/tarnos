@@ -56,9 +56,10 @@ public class CategoryRequirement : MonoBehaviour
 
     private bool AreAllRequirementsMet(RequirementProgress[] requirements)
     {
-        return GetAllProgressComponents().All(progressComponent =>
-            requirements
-            .Any(requirement => requirement.ProgressID == progressComponent.RequirementID && requirement.Level <= progressComponent.Level));
+        return requirements.All(requirement =>
+            GetAllProgressComponents().Any(progress =>
+                progress.RequirementID == requirement.ProgressID && 
+                progress.Level >= requirement.Level));
     }
 
     private IEnumerable<Progress> GetAllProgressComponents()

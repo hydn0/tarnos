@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7531717877842840345
+--- !u!1001 &8284056010658119078
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -90,19 +90,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3779345321243572694, guid: 95dfb531abe9d554b9ee8ba5c619587d, type: 3}
       propertyPath: m_Name
-      value: Beggar
-      objectReference: {fileID: 0}
-    - target: {fileID: 3779345321243572694, guid: 95dfb531abe9d554b9ee8ba5c619587d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737448923292104870, guid: 95dfb531abe9d554b9ee8ba5c619587d, type: 3}
-      propertyPath: _id
-      value: Beggar
+      value: Footman
       objectReference: {fileID: 0}
     - target: {fileID: 4737448923292104870, guid: 95dfb531abe9d554b9ee8ba5c619587d, type: 3}
       propertyPath: _requirementID
-      value: Beggar
+      value: Footman
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737448923292104870, guid: 95dfb531abe9d554b9ee8ba5c619587d, type: 3}
+      propertyPath: _requirements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737448923292104870, guid: 95dfb531abe9d554b9ee8ba5c619587d, type: 3}
+      propertyPath: _requirements.Array.data[0].Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737448923292104870, guid: 95dfb531abe9d554b9ee8ba5c619587d, type: 3}
+      propertyPath: _requirements.Array.data[0].ProgressID
+      value: Squire
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
